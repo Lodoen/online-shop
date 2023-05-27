@@ -1,9 +1,11 @@
+import { ReviewItemContainer } from "./index.styles";
+
 export default function ReviewItem(props) {
   return (
-    <div>
-      <h2>{props.username}</h2>
+    <ReviewItemContainer>
+      <h3>{props.username}</h3>
       <p>Rating: {props.rating} / 5</p>
       <p>{props.description}</p>
-    </div>
+    </ReviewItemContainer>
   );
 }
