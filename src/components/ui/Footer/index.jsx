@@ -1,3 +1,10 @@
+import { Link } from "react-router-dom";
+import * as S from "./index.styles";
+
 export default function Footer() {
-  return <footer>Footer</footer>;
+  return (
+    <S.Footer>
+      <Link to="/">O-shop - 2023</Link>
+    </S.Footer>
+  );
 }
