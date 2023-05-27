@@ -14,7 +14,6 @@ export default function AddToCart({ id, setIsInCart }) {
         setItemsInCart((prevState) => prevState + 1);
       }}
     >
-      {" "}
       Add to cart
     </AddToCartButton>
   );
