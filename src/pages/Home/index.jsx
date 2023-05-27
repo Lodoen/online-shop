@@ -4,6 +4,8 @@ import useApi from "../../hooks/api/useApi";
 import ProductList from "../../components/product/ProductList";
 import FoundNoProduct from "../../components/product/FoundNoProduct";
 import useFilterProducts from "../../hooks/useFilterProducts";
+import { Container } from "./index.styles";
+import Loading from "../../components/Loading";
 
 export default function Home() {
   const { data, isLoading, isError } = useApi();
@@ -12,7 +14,7 @@ export default function Home() {
   let products = [];
 
   if (isLoading) {
-    return <div>Loading products</div>;
+    return <Loading />;
   } else {
     products = useFilterProducts(search, [...data]);
   }
@@ -22,7 +24,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <Container>
       <h1>Home page</h1>
       <label htmlFor="search">Search:</label>
       <input
@@ -34,6 +36,6 @@ export default function Home() {
         }}
       />
       {products.length ? <ProductList products={products} /> : <FoundNoProduct />}
-    </div>
+    </Container>
   );
 }
