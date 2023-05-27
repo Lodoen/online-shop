@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
+import * as S from "./index.styles";
+
 export default function Nav() {
   return (
-    <nav>
+    <S.Nav>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -11,6 +13,6 @@ export default function Nav() {
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
-    </nav>
+    </S.Nav>
   );
 }
