@@ -6,9 +6,9 @@ export default function Checkout() {
   const cart = useRead("cart");
 
   return (
-    <div>
+    <section>
       <h1>Checkout</h1>
       {Array.isArray(cart) && cart.length ? <CartList cart={cart} /> : <FoundNoCart />}
-    </div>
+    </section>
   );
 }

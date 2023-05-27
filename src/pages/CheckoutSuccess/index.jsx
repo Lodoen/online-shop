@@ -12,9 +12,9 @@ export default function CheckoutSuccess() {
   }, []);
 
   return (
-    <div>
+    <section>
       <h1>Order was successful</h1>
-      <Link to="/">Back to store</Link>
-    </div>
+      <Link to="/">Back to store &gt;&gt;</Link>
+    </section>
   );
 }
