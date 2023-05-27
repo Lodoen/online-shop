@@ -1,7 +1,5 @@
+import { CutPriceContainer } from "./index.styles";
+
 export default function CutPrice({ price }) {
-  return (
-    <span>
-      ={price}kr= <br />
-    </span>
-  );
+  return <CutPriceContainer>{price}kr</CutPriceContainer>;
 }
