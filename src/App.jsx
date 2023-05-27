@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import styled from "styled-components";
 
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -8,9 +9,15 @@ import Checkout from "./pages/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import RouteNotFound from "./pages/RouteNotFound";
 
+const Container = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+`;
+
 export default function App() {
   return (
-    <div>
+    <Container>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -21,6 +28,6 @@ export default function App() {
           <Route path="*" element={<RouteNotFound />} />
         </Route>
       </Routes>
-    </div>
+    </Container>
   );
 }
