@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { TiDelete } from "react-icons/ti";
 
 import useRemoveFromCart from "../../../hooks/cart/useRemoveFromCart";
 import { CartLengthContext } from "../../Layout";
@@ -18,7 +19,7 @@ export default function RemoveFromCart({ id, setIsInCart, totalPrice = undefined
         }
       }}
     >
-      Remove from cart
+      {totalPrice ? <TiDelete /> : "Remove from cart"}
     </RemoveFromCartButton>
   );
 }
