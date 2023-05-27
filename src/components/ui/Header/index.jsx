@@ -1,12 +1,19 @@
+import { Link } from "react-router-dom";
+
+import * as S from "./index.styles";
 import CartIcon from "../CartIcon";
 import Nav from "../Nav";
 
 export default function Header() {
   return (
-    <header>
-      <div>I am a header</div>
+    <S.Header>
+      <div>
+        <Link to="/">O-shop</Link>
+      </div>
       <Nav />
-      <CartIcon />
-    </header>
+      <div>
+        <CartIcon />
+      </div>
+    </S.Header>
   );
 }
