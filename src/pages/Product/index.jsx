@@ -8,6 +8,8 @@ import AddToCart from "../../components/cart/AddToCart";
 import RemoveFromCart from "../../components/cart/RemoveFromCart";
 import ReviewList from "../../components/review/ReviewList";
 import FoundNoReviews from "../../components/review/FoundNoReviews";
+import { Container } from "./index.styles";
+import Loading from "../../components/Loading";
 
 export default function Product() {
   let { id } = useParams();
@@ -18,7 +20,7 @@ export default function Product() {
   const [isInCart, setIsInCart] = useState(useFindInCart(id));
 
   if (isLoading) {
-    return <div>Loading product</div>;
+    return <Loading />;
   }
 
   if (isError) {
@@ -28,16 +30,25 @@ export default function Product() {
   const discountPercentage = 100 - ((discountedPrice / price) * 100).toFixed(2);
 
   return (
-    <div>
+    <Container>
       <h1>{title}</h1>
-      <p>{description}</p>
-      {/* <img src={imageUrl} alt="Showcase of product" /> */}
-      <p>
-        {discountPercentage ? <CutPrice price={price} /> : ""}
-        {discountedPrice}kr {discountPercentage ? `( ${discountPercentage}% off! )` : ""}
-      </p>
-      {isInCart ? <RemoveFromCart id={id} setIsInCart={setIsInCart} /> : <AddToCart id={id} setIsInCart={setIsInCart} />}
-      {Array.isArray(reviews) && reviews.length ? <ReviewList reviews={reviews} /> : <FoundNoReviews />}
-    </div>
+      <div className="details">
+        <figure>
+          <img src={imageUrl} alt="Showcase of product" />
+        </figure>
+        <div>
+          <p>{description}</p>
+          {discountPercentage ? <CutPrice price={price} /> : ""}
+          <p className="price">
+            {discountedPrice}kr {discountPercentage ? `( ${discountPercentage}% off! )` : ""}
+          </p>
+          {isInCart ? <RemoveFromCart id={id} setIsInCart={setIsInCart} /> : <AddToCart id={id} setIsInCart={setIsInCart} />}
+        </div>
+      </div>
+      <div>
+        <h2>Reviews</h2>
+        {Array.isArray(reviews) && reviews.length ? <ReviewList reviews={reviews} /> : <FoundNoReviews />}
+      </div>
+    </Container>
   );
 }
