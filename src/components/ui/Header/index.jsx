@@ -7,7 +7,7 @@ import Nav from "../Nav";
 export default function Header() {
   return (
     <S.Header>
-      <div>
+      <div className="logo">
         <Link to="/">O-shop</Link>
       </div>
       <Nav />

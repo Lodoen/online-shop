@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const Header = styled.header`
   background-color: ${({ theme }) => theme.colors.primary};
 
+  .logo {
+    font-family: Arial Black, Arial Bold, sans-serif;
+    font-size: 1.15rem;
+    font-style: italic;
+  }
+
   & > div {
     display: flex;
     align-items: center;
