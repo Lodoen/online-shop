@@ -21,6 +21,10 @@ export const Header = styled.header`
     border-bottom: 1px solid #fff;
   }
 
+  & > div:last-of-type {
+    padding: 15px 0;
+  }
+
   a {
     color: #fff;
     text-decoration: none;
