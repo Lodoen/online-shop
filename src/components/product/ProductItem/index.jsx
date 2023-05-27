@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 
-export default function ProductItem(props) {
+import * as S from "./index.styles";
+
+export default function ProductItem({ id, title, discountedPrice, imageUrl }) {
   return (
-    <div>
-      <h2>{props.title}</h2>
-      <p>{props.price}</p>
-      <Link to={`/product/${props.id}`}>View product</Link>
-    </div>
+    <S.ProductItemContainer>
+      <figure>
+        <img src={imageUrl} alt="Product showcase" />
+      </figure>
+      <div>
+        <h2>{title}</h2>
+        <p>{discountedPrice} kr</p>
+        <Link to={`/product/${id}`}>View product &gt;&gt;</Link>
+      </div>
+    </S.ProductItemContainer>
   );
 }
