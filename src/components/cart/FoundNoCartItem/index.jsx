@@ -1,3 +1,5 @@
+import { FoundNoCartItemContainer } from "./index.styles";
+
 export default function FoundNoCartItem() {
-  return <div>Cart item removed</div>;
+  return <FoundNoCartItemContainer>Cart item removed</FoundNoCartItemContainer>;
 }

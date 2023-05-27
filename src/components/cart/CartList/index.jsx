@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import CartItem from "../CartItem";
 import UndefinedCartItem from "../UndefinedCartItem";
 import { Link } from "react-router-dom";
+import { CartListContainer } from "./index.styles";
+import Loading from "../../Loading";
 
 export default function CartList({ cart }) {
   const [cartWithItems, setCartWithItems] = useState([]);
@@ -42,7 +44,7 @@ export default function CartList({ cart }) {
   }, [cartWithItems]);
 
   if (isLoading) {
-    return <div>Loading cart</div>;
+    return <Loading />;
   }
 
   if (isError) {
@@ -50,7 +52,7 @@ export default function CartList({ cart }) {
   }
 
   return (
-    <div>
+    <CartListContainer>
       {cartWithItems.map((product, index) =>
         product.statusCode == undefined ? (
           <CartItem key={product.id} setTotalPrice={setTotalPrice} {...product} />
@@ -58,14 +60,20 @@ export default function CartList({ cart }) {
           <UndefinedCartItem id={cart[index]} />
         )
       )}
-      <p>{totalPrice > 0 ? `Total price: ${totalPrice.toFixed(2)}` : "Cart has been emptied"}</p>
-      {totalPrice > 0 ? (
-        <Link to="/checkoutSuccess">
-          <button>Checkout</button>
-        </Link>
-      ) : (
-        ""
-      )}
-    </div>
+      <div className="checkout">
+        <div>
+          <p>{totalPrice > 0 ? `Total price: ${totalPrice.toFixed(2)}kr` : "Cart has been emptied"}</p>
+        </div>
+        <div>
+          {totalPrice > 0 ? (
+            <Link to="/checkoutSuccess">
+              <button>Checkout</button>
+            </Link>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
+    </CartListContainer>
   );
 }
